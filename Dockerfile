@@ -2,11 +2,9 @@ FROM node:22-bookworm
 
 WORKDIR /app
 
-RUN corepack enable
+RUN npm install -g pnpm@10.18.0
 
 COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
-
-RUN corepack prepare pnpm@10.18.0 --activate
 
 RUN pnpm install --no-frozen-lockfile
 
