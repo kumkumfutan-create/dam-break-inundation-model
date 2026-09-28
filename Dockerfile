@@ -7,8 +7,9 @@ RUN corepack prepare pnpm@10.18.0 --activate
 
 COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
 
-RUN pnpm install --no-frozen-lockfile
-
+RUN pnpm install
+--no-frozen-lockfile
+--reporter=append-only
 COPY . .
 
 RUN pnpm build
